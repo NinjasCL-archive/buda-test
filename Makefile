@@ -22,3 +22,4 @@ sha sha256:
 
 e example:
 	python3 . A H red
+	python3 . ./metro.json G A green

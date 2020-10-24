@@ -11,3 +11,102 @@ El string hexadecimal resultante de aplicarle la función sha256 a tu string deb
 Escribe un programa que permita calcular la ruta con menor cantidad de estaciones entre dos estaciones de una red de metro. En la red de metro algunas estaciones pueden tener un color asociado (Rojo o Verde) que indica que un tren exprés de color Verde pasará solo por estaciones sin color o Verde, y un tren exprés de color Rojo pasará solo por estaciones sin color o Roja.
 
 Ver link:challenge.pdf{ext-relative}[challenge.pdf].
+
+### Example Run
+
+```sh
+
+$ python3 . A H red
+
+Train > color: red | from: A (color: None) | to: H (color: red) | shortest: [A (color: None), B (color: None), C (color: None), H (color: red)]
+
+```
+
+```sh
+$ python3 . ./metro.json G A green
+
+Train > color: green | from: G (color: green) | to: A (color: None) | shortest: [G (color: green), C (color: None), B (color: None), A (color: None)]
+```
+
+### Example json
+
+```js
+{
+  "first": 0,
+  "last": 5,
+  "stations": {
+    "0": {
+      "id": 0,
+      "label": "A",
+      "color": null,
+      "parents": null,
+      "children": [1]
+    },
+    "1": {
+      "id": 1,
+      "label": "B",
+      "color": null,
+      "parents": [0],
+      "children": [2]
+    },
+    "2": {
+      "id": 2,
+      "label": "C",
+      "color": null,
+      "parents": [1],
+      "children": [3, 6]
+    },
+    "3": {
+      "id":3,
+      "label": "D",
+      "color": null,
+      "parents": [2],
+      "children": [4]
+    },
+    "4": {
+      "id": 4,
+      "label": "E",
+      "color": null,
+      "parents": [3],
+      "children": [5]
+    },
+    "5": {
+      "id": 5,
+      "label": "F",
+      "color": null,
+      "parents": [4, 8],
+      "children": null
+    },
+    "6": {
+      "id": 6,
+      "label": "G",
+      "color": "green",
+      "parents": [2],
+      "children": [7]
+    },
+    "7": {
+      "id": 7,
+      "label": "H",
+      "color": "red",
+      "parents": [6],
+      "children": [8]
+    },
+    "8": {
+      "id": 8,
+      "label": "I",
+      "color": "green",
+      "parents": [7],
+      "children": [5]
+    }
+  }
+}
+```
+
+++++
+<p>
+  Made with <i class="fa fa-heart">&#9829;</i> by
+  <a href="https://ninjas.cl">
+    Ninjas.cl
+  </a>.
+</p>
+++++

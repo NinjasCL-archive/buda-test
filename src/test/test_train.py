@@ -63,6 +63,7 @@ def test_that_red_train_can_travel():
     with pytest.raises(Exception):
         Train.red(metro).origin("G").to("A").travel()
 
+
 def test_that_green_train_can_travel():
     metro = Metro.fromJson()
     train = Train.green(metro).origin("A").to("G").travel()

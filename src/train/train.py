@@ -35,8 +35,10 @@ class Train:
         return self
 
     def color(self, color):
-        Color.check(color)
-        self._color = color
+        if color:
+            self._color = color.lower()
+
+        Color.check(self._color)
         return self
 
     def origin(self, id):
